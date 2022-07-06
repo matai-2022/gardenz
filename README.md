@@ -6,6 +6,8 @@
 
 To get started, clone this repo and then:
 
+
+
 ```
 cd gardenz
 npm install
