@@ -48,7 +48,22 @@ describe('GET /api/v1/gallery/:id', () => {
   })
 })
 
+const mockImage = {
+  name: 'banana',
+  mimetype: 'mimetype',
+  image: 'theimage',
+  garden_id: 1,
+}
+
 describe('POST /api/v1/:gardenId', () => {
-  it.todo('responds with the correct gallery')
+  it('responds with the correct gallery', () => {
+    db.addImage.mockImplementation((image) => {
+      expect(image.garden_id).toBe(1)
+      expect(image.id).toBe(1)
+      expect(image.mimetype).toMatch('mimetype')
+      expect(image.image).toMatch('theimage')
+      return Promise.resolve(mockImage)
+    })
+  })
   it.todo('responds with the status 500')
 })
