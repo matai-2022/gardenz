@@ -16,7 +16,6 @@ export default function AddNews() {
     request['get']('/api/v1/gardens')
       .set({ Accept: 'application/json' })
       .then((res) => {
-        console.log(res)
         setGardens(res.body.gardens)
         return
       })
@@ -27,7 +26,7 @@ export default function AddNews() {
   }, [])
 
   function submitNews(news) {
-    addNews(news, navigate)
+    addNews(gardenId, news, navigate)
   }
 
   const initialState = {
@@ -36,7 +35,6 @@ export default function AddNews() {
   }
 
   function handleChange(event) {
-    console.log('Garden selected: ' + event.target.value)
     setGarden(event.target.value)
   }
 

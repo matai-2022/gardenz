@@ -3,9 +3,9 @@ import { setWaiting, clearWaiting } from '../../../slices/waiting'
 import { showError } from '../../../slices/error'
 import requestor from '../../../consume'
 
-export function addNews(news, navigateTo, consume = requestor) {
+export function addNews(gardenId, news, navigateTo, consume = requestor) {
   const storeState = getState()
-  const { gardenId, token } = storeState.user
+  const { token } = storeState.user
   const newNews = {
     gardenId,
     ...news,
