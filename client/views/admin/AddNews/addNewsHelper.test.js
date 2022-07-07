@@ -9,10 +9,6 @@ afterEach(() => {
   return dispatch.mockClear()
 })
 
-it('ddsfsd', () => {
-  expect(true).toBeTruthy()
-})
-
 describe('testing the helper function addNews', () => {
   it('dispatches and redirects correctly on POST /news api call success', () => {
     getState.mockImplementation(() => ({
