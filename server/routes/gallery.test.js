@@ -3,9 +3,14 @@ const request = require('supertest')
 const server = require('../server')
 const db = require('../db/gallery')
 const log = require('../logger')
+const { getAdminToken } = require('./mockToken')
 
 jest.mock('../db/gallery')
 jest.mock('../logger')
+
+const testAuthAdminHeader = {
+  Authorization: `Bearer ${getAdminToken()}`,
+}
 
 describe('GET /api/v1/gallery/:id', () => {
   it('responds with the correct gallery', () => {
@@ -65,5 +70,37 @@ describe('POST /api/v1/:gardenId', () => {
       return Promise.resolve(mockImage)
     })
   })
-  it.todo('responds with the status 500')
+
+  it('responds with the status 500', async () => {
+    // db.addImage.mockImplementation(() => {
+    //   return Promise.reject(new Error('mock addImage error'))
+    // })
+    return request(server)
+      .post('/api/v1/gallery')
+      .set(testAuthAdminHeader)
+      .expect('Content-Type', 'application/json')
+      .then((res) => {
+        //expect(res.status).toBe(500)
+        expect(log).toHaveBeenCalledWith('mock addImage error')
+        expect(res.body.error.title).toBe('Unable to add gallery images')
+        return null
+      })
+  })
 })
+// it('responds with the status 500', () => {
+//     db.addImage.mockImplementation(() => {
+//       return Promise.reject(new Error('mock addImage error'))
+//     })
+//   })
+//it('responds with the status 500', () => {
+//   db.addImage.mockImplementation((image) => {
+//     return Promise.reject(new Error('mock addImage error'))
+//   })
+//   return request(server)
+//     .post('/api/v1/gallery/2')
+//     .send(mockImage)
+//     .then((res) => {
+//       expect(res.status).toBe(500)
+//       return null
+//     })
+// })
