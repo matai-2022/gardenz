@@ -1,7 +1,7 @@
-import React from 'react'
+import request from 'superagent'
+import React, { useState, useEffect } from 'react'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
-import { motion } from 'framer-motion'
 
 import Conditional from '../../Conditional'
 import { formButtonVariants } from '../../../views/animationVariants'
@@ -12,19 +12,31 @@ const newsSchema = Yup.object({
 })
 
 export default function NewsForm(props) {
-  const news = props.formData
-  const { title, content } = news
-
   const formik = useFormik({
     initialValues: {
-      title,
-      content,
+      gardenId: 0,
+      title: '',
+      content: '',
     },
     onSubmit: (values) => {
       props.submitNews(values)
     },
     validationSchema: newsSchema,
   })
+
+  const [gardens, setGardens] = useState([])
+  useEffect(() => {
+    request['get']('/api/v1/gardens')
+      .set({ Accept: 'application/json' })
+      .then((res) => {
+        setGardens(res.body.gardens)
+        return
+      })
+      .catch((error) => {
+        const errMessage = error.response?.body?.error?.title
+        throw new Error(errMessage || error.message)
+      })
+  }, [])
 
   return (
     <>
@@ -40,6 +52,22 @@ export default function NewsForm(props) {
             >
               <p className="inputError">{formik.errors.title}</p>
             </Conditional>
+            <select
+              name="gardenId"
+              id="garden"
+              onChange={formik.handleChange}
+              value={formik.values.gardenId}
+              className="appearance-none border-2 border-gray-100 rounded-lg px-4 py-3 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-green-600 focus:shadow-lg"
+            >
+              <option hidden>Select from this list</option>
+              {gardens.map((garden) => {
+                return (
+                  <option key={garden.id} value={garden.id}>
+                    {garden.name}
+                  </option>
+                )
+              })}
+            </select>
             <input
               className="form-box"
               id="title"
@@ -70,14 +98,13 @@ export default function NewsForm(props) {
           </div>
 
           <div className="button-group">
-            <motion.button
+            <button
               className="submit form-box"
               type="submit"
               variants={formButtonVariants}
-              whileHover="hover"
             >
               Submit
-            </motion.button>
+            </button>
           </div>
         </form>
       </div>

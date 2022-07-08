@@ -3,19 +3,15 @@ import { setWaiting, clearWaiting } from '../../../slices/waiting'
 import { showError } from '../../../slices/error'
 import requestor from '../../../consume'
 
-export function addNews(gardenId, news, navigateTo, consume = requestor) {
+export function addNews(news, navigateTo, consume = requestor) {
   const storeState = getState()
   const { token } = storeState.user
-  const newNews = {
-    gardenId,
-    ...news,
-  }
 
   dispatch(setWaiting())
 
-  return consume(`/news/${gardenId}`, token, 'post', newNews)
+  return consume(`/news/${news.gardenId}`, token, 'post', news)
     .then(() => {
-      navigateTo(`/gardens/${gardenId}/news`)
+      navigateTo(`/gardens/${news.gardenId}/news`)
       return null
     })
     .catch((err) => {
