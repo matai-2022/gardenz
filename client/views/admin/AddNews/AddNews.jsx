@@ -16,6 +16,7 @@ export default function AddNews() {
   const initialState = {
     title: '',
     content: '',
+    gardenId: '',
   }
 
   return (

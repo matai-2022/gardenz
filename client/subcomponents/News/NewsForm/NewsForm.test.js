@@ -9,20 +9,26 @@ describe('event form field', () => {
     const emptyForm = {
       title: '',
       content: '',
+      gardenId: '',
     }
-    render(<NewsForm formData={emptyForm} />)
+    const submitNews = jest.mock()
+    // render(<NewsForm formData={emptyForm} />)
+    renderWithRedux(<NewsForm formData={{ emptyForm }} />, {})
 
     const titleInput = screen.getByRole('textbox', { name: 'News Title' })
     const contentInput = screen.getByRole('textbox', {
       name: 'Content',
     })
+    const gardenInput = screen.getByRole('option', { name: 'selectGarden' })
 
     userEvent.type(titleInput, 'test title')
     userEvent.type(contentInput, 'cool news, yeiyah!')
+    userEvent.type(gardenInput, '1')
 
     await waitFor(() => {
       expect(titleInput).toHaveValue('test title')
       expect(contentInput).toHaveTextContent(/yeiyah/)
+      expect(gardenInput).toHaveValue('1')
     })
   })
 

@@ -2,20 +2,21 @@ import { dispatch, getState } from '../../../store'
 import { setWaiting, clearWaiting } from '../../../slices/waiting'
 import { showError } from '../../../slices/error'
 import requestor from '../../../consume'
+// import NewsForm from '../../../subcomponents/News/NewsForm/NewsForm'
 
 export function addNews(news, navigateTo, consume = requestor) {
   const storeState = getState()
-  const { gardenId, token } = storeState.user
+  // change this so that garnden id comes from drop down in newsfrom
+  const { token } = storeState.user
   const newNews = {
-    gardenId,
     ...news,
   }
 
   dispatch(setWaiting())
 
-  return consume(`/news/${gardenId}`, token, 'post', newNews)
+  return consume(`/news/${news.gardenId}`, token, 'post', newNews)
     .then(() => {
-      navigateTo(`/gardens/${gardenId}/news`)
+      navigateTo(`/gardens/${news.gardenId}/news`)
       return null
     })
     .catch((err) => {

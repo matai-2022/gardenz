@@ -44,7 +44,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/admin/gardens" element={<Gardens />} />
           <Route path="/admin/gardens/add" element={<AddGarden />} />
-          <Route path="/gardens/:id/news/add" element={<AddNews />} />
+          <Route path="/gardens/news/add" element={<AddNews />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/admin/events/:id" element={<Event />} />
           <Route path="/admin/events/add" element={<AddEvent />} />
