@@ -2,6 +2,7 @@ import request from 'superagent'
 import React, { useState, useEffect } from 'react'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
+import { motion } from 'framer-motion'
 
 import Conditional from '../../Conditional'
 import { formButtonVariants } from '../../../views/animationVariants'
@@ -98,13 +99,14 @@ export default function NewsForm(props) {
           </div>
 
           <div className="button-group">
-            <button
+            <motion.button
               className="submit form-box"
               type="submit"
               variants={formButtonVariants}
+              whileHover="hover"
             >
               Submit
-            </button>
+            </motion.button>
           </div>
         </form>
       </div>
