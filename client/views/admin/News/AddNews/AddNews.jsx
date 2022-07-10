@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
 import { addNews } from './addNewsHelper'
-import NewsForm from '../../../subcomponents/News/NewsForm/NewsForm' //Change
-import { addEventVariants } from '../../animationVariants'
+import { addEventVariants } from '../../../animationVariants'
+import NewsForm from '../../../../subcomponents/News/NewsForm/NewsForm' //Change
 
 export default function AddNews() {
   const navigate = useNavigate()
