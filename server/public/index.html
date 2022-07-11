@@ -15,11 +15,21 @@
       crossorigin=""
     />
     <link rel="stylesheet" href="/main.css" />
+    <link type="text/css" rel="stylesheet" href="css/lightgallery-bundle.css" />
     <title>Gardenz</title>
   </head>
   <body>
     <main id="app" class="font-sans relative"></main>
   <script src="/bundle.js"></script>
+  <script src="js/lightgallery.umd.js"></script>
+  <script type="text/javascript">
+    lightGallery(document.getElementById('lightgallery'), {
+        plugins: [lgZoom, lgThumbnail],
+        // licenseKey: 'your_license_key'
+        speed: 500,
+        // ... other settings
+    });
+</script>
   <script src="https://kit.fontawesome.com/c3c7ad30c9.js" crossorigin="anonymous"></script>
   <script
   src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
