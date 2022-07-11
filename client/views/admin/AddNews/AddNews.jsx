@@ -1,19 +1,35 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { addNews } from './addNewsHelper'
 import { motion } from 'framer-motion'
-
+import { useDispatch } from 'react-redux'
 import NewsForm from '../../../subcomponents/News/NewsForm/NewsForm' //Change
 import { addEventVariants } from '../../animationVariants'
+import { getAllGardens } from '../../../views/user/Gardens/Index/IndexHelper'
+import { showError } from '../../../slices/error'
 
 export default function AddNews() {
-  const navigate = useNavigate()
+  const navigateTo = useNavigate()
+  const dispatch = useDispatch()
+  const [gardenList, setGardenList] = useState([])
 
   function submitNews(news) {
-    addNews(news, navigate)
+    addNews(news, navigateTo)
   }
 
-  const initialState = {
+  useEffect(() => {
+    getAllGardens()
+      .then((gardens) => {
+        setGardenList(gardens)
+        return null
+      })
+      .catch((err) => {
+        dispatch(showError(err.message))
+        return false
+      })
+  }, [])
+
+  const initialFormData = {
     title: '',
     content: '',
     gardenId: '',
@@ -27,8 +43,9 @@ export default function AddNews() {
       exit="exit"
     >
       <NewsForm
-        formData={initialState}
+        initialFormData={initialFormData}
         action="Create News"
+        gardenList={gardenList}
         submitNews={submitNews}
       />
     </motion.div>

@@ -1,8 +1,11 @@
 import React from 'react'
 import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-
+import renderWithRedux from '@testing-library/render-with-redux'
+import test-utils from '@testing-library/test-utils'
 import NewsForm from './NewsForm'
+
+// make mock.jest data like news.test
 
 describe('event form field', () => {
   it('updates correctly on user input', async () => {
