@@ -18,8 +18,11 @@ export default function NewsForm({
 }) {
   return (
     <>
-      <div>
-        <h2 className="form-title">{action}</h2>
+      {/* flex container for entire page */}
+      {/* <div className=" "> */}
+      {/* flex container for contents */}
+      <div className="flex flex-col items-center w-full ">
+        <h2 className="font-bold">{action}</h2>
         <Formik
           initialValues={initialFormData}
           validationSchema={newsSchema}
@@ -28,28 +31,33 @@ export default function NewsForm({
           }}
         >
           {({ errors, touched }) => (
-            <Form className="form-content">
-              <div className="field">
+            <Form className="flex flex-col form-content w-6/12 items-center">
+              <div className="flex flex-col w-full">
                 <label htmlFor="title" className="label">
                   News Title
                 </label>
 
                 <Field
-                  className="form-box"
+                  className="border-2 border-lightGreen rounded-sm"
                   id="title"
                   name="title"
                   type="text"
-                  placeholder="news title"
+                  placeholder="Enter News Title"
                 />
                 {errors.name && touched.name ? <div>{errors.name}</div> : null}
 
                 <label htmlFor="select garden" className="label">
-                  Select Garden
+                  Gardens
                 </label>
                 {errors.gardenId && touched.gardenId ? (
                   <div>{errors.gardenId}</div>
                 ) : null}
-                <Field className="gardenId" name="gardenId" id="gardenId">
+                <Field
+                  className="border-2 border-lightGreen bg-white rounded-sm w-5/6"
+                  //specfic to dropdown formatting?
+                  name="gardenId"
+                  id="gardenId"
+                >
                   {({ field }) => (
                     <select {...field}>
                       <option value=""></option>
@@ -62,23 +70,23 @@ export default function NewsForm({
                   )}
                 </Field>
                 <label htmlFor="content" className="label">
-                  Content
+                  Description
                 </label>
 
                 <Field
-                  className="content-box"
+                  className="border-2 border-lightGreen rounded-sm p-10 "
                   id="content"
                   name="content"
                   type="text"
-                  placeholder="news content"
+                  placeholder="Enter Description"
                 />
                 {errors.content && touched.content ? (
                   <div>{errors.content}</div>
                 ) : null}
               </div>
-              <div className="button-group">
+              <div className="button-group ">
                 <motion.button
-                  className="submit form-box"
+                  className="text-white bg-orange rounded-sm px-5 "
                   type="submit"
                   variants={formButtonVariants}
                   whileHover="hover"
@@ -90,6 +98,7 @@ export default function NewsForm({
           )}
         </Formik>
       </div>
+      {/* </div> */}
     </>
   )
 }

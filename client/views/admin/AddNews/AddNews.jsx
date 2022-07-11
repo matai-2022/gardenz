@@ -44,7 +44,7 @@ export default function AddNews() {
     >
       <NewsForm
         initialFormData={initialFormData}
-        action="Create News"
+        action="Post News"
         gardenList={gardenList}
         submitNews={submitNews}
       />
