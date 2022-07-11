@@ -153,7 +153,14 @@ export default function App() {
               </>
             }
           />
-          <Route path="/gardens/cart" element={<Cart />} />
+          <Route
+            path="/gardens/cart"
+            element={
+              <>
+                <UserNav /> <Cart />
+              </>
+            }
+          />
           <Route path="/profile" element={<Profile />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
