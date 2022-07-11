@@ -5,6 +5,7 @@ import location from './slices/location'
 import waiting from './slices/waiting'
 import error from './slices/error'
 import garden from './slices/garden'
+import cart from './slices/cart'
 
 export const reducers = combineReducers({
   user,
@@ -12,6 +13,7 @@ export const reducers = combineReducers({
   waiting,
   error,
   garden,
+  cart,
 })
 
 const store = configureStore({

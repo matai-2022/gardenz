@@ -28,6 +28,7 @@ import Shop from './views/user/Gardens/Shop/Shop'
 import PageNotFound from './views/PageNotFound/PageNotFound'
 import AdminGardens from './views/admin/Gardens/Index/Index'
 import Menu from './views/admin/Gardens/Menu/Menu'
+import Cart from './views/user/Gardens/Cart/Cart'
 
 export default function App() {
   const { isAuthenticated, getAccessTokenSilently, user } = useAuth0()
@@ -152,6 +153,7 @@ export default function App() {
               </>
             }
           />
+          <Route path="/gardens/cart" element={<Cart />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
