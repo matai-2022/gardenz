@@ -5,7 +5,7 @@ import { cartSelector } from '../../../../slices/cart'
 const Cart = () => {
   const cart = useSelector(cartSelector)
   const dispatch = useDispatch()
-  console.log(cart)
+
   return (
     <>
       {/* entire page div */}
