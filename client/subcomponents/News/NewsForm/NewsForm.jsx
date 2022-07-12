@@ -66,12 +66,12 @@ export default function NewsForm({
                     </select>
                   )}
                 </Field>
-                <label htmlFor="content" className="label">
+                <label htmlFor="content" className="">
                   Description
                 </label>
 
                 <Field
-                  className="border-2 border-lightGreen rounded-sm p-10"
+                  className="border-2 border-lightGreen rounded-sm pb-24 mb-2"
                   id="content"
                   name="content"
                   type="text"

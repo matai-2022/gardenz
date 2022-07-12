@@ -703,6 +703,10 @@ video {
   margin-bottom: 2.5rem;
 }
 
+.mb-24 {
+  margin-bottom: 6rem;
+}
+
 .block {
   display: block;
 }
@@ -715,10 +719,6 @@ video {
   display: grid;
 }
 
-.contents {
-  display: contents;
-}
-
 .hidden {
   display: none;
 }
@@ -729,6 +729,18 @@ video {
 
 .h-96 {
   height: 24rem;
+}
+
+.h-1\/4 {
+  height: 25%;
+}
+
+.h-auto {
+  height: auto;
+}
+
+.h-1\/2 {
+  height: 50%;
 }
 
 .w-full {
@@ -910,6 +922,11 @@ video {
   background-color: rgb(209 29 3 / var(--tw-bg-opacity));
 }
 
+.bg-black {
+  --tw-bg-opacity: 1;
+  background-color: rgb(54 54 54 / var(--tw-bg-opacity));
+}
+
 .bg-\[url\(\'\/images\/galleryPlaceHolder04\.jpg\'\)\] {
   background-image: url('/images/galleryPlaceHolder04.jpg');
 }
@@ -1004,6 +1021,10 @@ video {
 
 .pb-14 {
   padding-bottom: 3.5rem;
+}
+
+.pb-24 {
+  padding-bottom: 6rem;
 }
 
 .text-center {
