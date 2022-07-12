@@ -3,10 +3,10 @@ import { useNavigate } from 'react-router-dom'
 import { addNews } from './addNewsHelper'
 import { motion } from 'framer-motion'
 import { useDispatch } from 'react-redux'
-import NewsForm from '../../../subcomponents/News/NewsForm/NewsForm' //Change
-import { addEventVariants } from '../../animationVariants'
-import { getAllGardens } from '../../../views/user/Gardens/Index/IndexHelper'
-import { showError } from '../../../slices/error'
+import NewsForm from '../../../../subcomponents/News/NewsForm/NewsForm'
+import { addEventVariants } from '../../../animationVariants'
+import { getAllGardens } from '../../../../views/user/Gardens/Index/IndexHelper'
+import { showError } from '../../../../slices/error'
 
 export default function AddNews() {
   const navigateTo = useNavigate()
