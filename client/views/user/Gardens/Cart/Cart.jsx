@@ -25,7 +25,7 @@ const Cart = () => {
             {/* mybag header div ends here */}
 
             {/* small mixed box div */}
-            <div className="flex flex-row p-6 border-b-2 justify-between">
+            <div className="flex flex-row border-b-2 justify-between">
               <img
                 className="w-2/12 h-auto mr-8 shadow-2xl"
                 src="/images/comGardenPlant.png"
@@ -62,30 +62,36 @@ const Cart = () => {
               {/* top and bottom container ends */}
             </div>
             {/* small mixed bag div ends here */}
-            <div>
-              <p>Add a delivery message</p>
-              <button> + </button>
+            {/* bottom half div */}
+            <div className="flex flex-col bg-gray-200">
+              <div>
+                <p>Add a delivery message</p>
+                <button> + </button>
+              </div>
+              <div>
+                <p>Shipping</p>
+                <p> Calculated at Checkout</p>
+              </div>
+              <div>
+                <p>
+                  <span>Grand total</span> (inc.tax)
+                </p>
+                <p>$100 NZD</p>
+              </div>
+              <div>
+                <input type="checkbox"></input>
+                <p>
+                  I have read and agree with the terms of your delivery service.
+                </p>
+              </div>
             </div>
-            <div>
-              <p>Shipping</p>
-              <p> Calculated at Checkout</p>
-            </div>
-            <div>
-              <p>
-                <span>Grand total</span> (inc.tax)
-              </p>
-              <p>$100 NZD</p>
-            </div>
-            <div>
-              <input type="checkbox"></input>
-              <p>
-                I have read and agree with the terms of your delivery service.
-              </p>
-            </div>
+            {/* bottom half div ends */}
           </div>
 
           {/* mybag div ends here */}
-          <button className="self-end">Checkout</button>
+          <button className="self-end bg-orange w-4/12 mt-6 px-4 py-1 text-white rounded-md font-bold ">
+            Checkout
+          </button>
         </div>
       </div>
     </>
