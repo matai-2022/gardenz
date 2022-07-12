@@ -18,9 +18,6 @@ export default function NewsForm({
 }) {
   return (
     <>
-      {/* flex container for entire page */}
-      {/* <div className=" "> */}
-      {/* flex container for contents */}
       <div className="flex flex-col items-center w-full ">
         <h2 className="font-bold">{action}</h2>
         <Formik
