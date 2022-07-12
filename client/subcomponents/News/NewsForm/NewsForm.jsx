@@ -74,7 +74,7 @@ export default function NewsForm({
                 </label>
 
                 <Field
-                  className="border-2 border-lightGreen rounded-sm p-10 "
+                  className="border-2 border-lightGreen rounded-sm p-10"
                   id="content"
                   name="content"
                   type="text"
