@@ -27,14 +27,14 @@ const Cart = () => {
             {/* small mixed box div */}
             <div className="flex flex-row border-b-2 justify-between">
               <img
-                className="w-2/12 h-auto mr-8 shadow-2xl"
-                src="/images/comGardenPlant.png"
+                className="w-24 ml-6 my-6 h-auto shadow-2xl"
+                src="/images/foodBoxCart.jpg"
                 alt="basket images"
               />
               {/* top and bottom container */}
               <div className="flex flex-col  w-full">
                 {/* top box of small mixed bag div */}
-                <div className="flex flex-row justify-between px-10 mt-8 mb-4">
+                <div className="flex flex-row justify-between px-8 mt-8 mb-4">
                   <h3 className="text-xl font-bold">
                     Small Mixed Box Thursday
                   </h3>
@@ -44,7 +44,7 @@ const Cart = () => {
                 </div>
                 {/* top box of small mixed bag div  ends*/}
                 {/* bottom box of small mixed bag div */}
-                <div className="flex flex-row justify-between px-10">
+                <div className="flex flex-row justify-between px-8">
                   <h3 className="text-xl font-bold">$49</h3>
                   {/* button div */}
                   <div className=" justify-end border-solid border border-gray-400">
@@ -64,24 +64,35 @@ const Cart = () => {
             {/* small mixed bag div ends here */}
             {/* bottom half div */}
             <div className="flex flex-col bg-gray-200">
-              <div>
-                <p>Add a delivery message</p>
-                <button> + </button>
+              <div className="flex flex-row justify-between px-6 pt-6  text-gray-500">
+                <p className="font-bold">Add a delivery message</p>
+                <button className="text-2xl "> + </button>
               </div>
-              <div>
+              <div className="flex flex-row justify-between px-6 pb-6 text-gray-500 font-bold border-b border-solid border-gray-400  ">
                 <p>Shipping</p>
                 <p> Calculated at Checkout</p>
               </div>
-              <div>
-                <p>
-                  <span>Grand total</span> (inc.tax)
+              <div className="flex flex-row justify-between p-4 border-b border-solid border-gray-400 ">
+                <p className="text-gray-500">
+                  <span className="text-black font-bold text-xl mr-2">
+                    Grand total
+                  </span>
+                  (inc.tax)
                 </p>
-                <p>$100 NZD</p>
+                <p className="text-black font-bold text-xl">$100 NZD</p>
               </div>
-              <div>
-                <input type="checkbox"></input>
-                <p>
-                  I have read and agree with the terms of your delivery service.
+
+              <div className="flex flex-row py-6  ">
+                <input
+                  className="w-12 justify-self-start"
+                  type="checkbox"
+                ></input>
+                <p className="text-gray-500">
+                  I have read and agree with the terms of your{' '}
+                  <a className="underline" href="http://www.google.com">
+                    delivery service
+                  </a>
+                  .
                 </p>
               </div>
             </div>
