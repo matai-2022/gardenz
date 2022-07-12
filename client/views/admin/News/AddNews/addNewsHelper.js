@@ -1,9 +1,7 @@
-import { dispatch, getState } from '../../../store'
-import { setWaiting, clearWaiting } from '../../../slices/waiting'
-import { showError } from '../../../slices/error'
-import requestor from '../../../consume'
-// import { useNavigate } from 'react-router-dom'
-// import NewsForm from '../../../subcomponents/News/NewsForm/NewsForm'
+import { dispatch, getState } from '../../../../store'
+import { setWaiting, clearWaiting } from '../../../../slices/waiting'
+import { showError } from '../../../../slices/error'
+import requestor from '../../../../consume'
 
 export function addNews(news, navigateTo, consume = requestor) {
   // const navigateTo = useNavigate()
